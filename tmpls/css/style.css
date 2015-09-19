@@ -23,6 +23,11 @@ div#ytbg {
     z-index: -99;
 }
 input[type=text],
+input[type=password] {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+input[type=text],
 input[type=password],
 input[type=submit] {
   border: 1px solid lightblue;
@@ -30,8 +35,13 @@ input[type=submit] {
     margin: 3px;
     padding: 10px;
 }
-.loginform input[type=submit] {
+
+#loginform input[type=submit] {
     width: 65px;
+}
+
+#loginform input {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 input[type=submit] {
   background: #3383ff;
@@ -142,28 +152,29 @@ input[type=submit] {
     -webkit-animation-timing-function: ease-in-out;
     left: 0;
     position: absolute;
+    width: 100%;
 }
 #ytbg img:nth-of-type(1) {
-    animation-delay: 16s;
-    -moz-animation-delay: 16s;
-    -o-animation-delay: 16s;
-    -webkit-animation-delay: 16s;
-}
-#ytbg img:nth-of-type(2) {
     animation-delay: 12s;
     -moz-animation-delay: 12s;
     -o-animation-delay: 12s;
     -webkit-animation-delay: 12s;
 }
-#ytbg img:nth-of-type(3) {
+#ytbg img:nth-of-type(2) {
     animation-delay: 8s;
     -moz-animation-delay: 8s;
     -o-animation-delay: 8s;
     -webkit-animation-delay: 8s;
 }
-#ytbg img:nth-of-type(4) {
+#ytbg img:nth-of-type(3) {
     animation-delay: 4s;
     -moz-animation-delay: 4s;
     -o-animation-delay: 4s;
     -webkit-animation-delay: 4s;
+}
+#ytbg img:nth-of-type(4) {
+    animation-delay: 0s;
+    -moz-animation-delay: 0s;
+    -o-animation-delay: 0s;
+    -webkit-animation-delay: 0s;
 }

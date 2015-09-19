@@ -39,6 +39,8 @@ class MainHandler(webapp2.RequestHandler):
             print 'Checking name...'
         if self.request.get('sigbtn'):
             print 'Registering user...'
+            user = User()
+            user.name
         if self.request.get('logbtn'):
             print 'Logging user...'
 
