@@ -3,13 +3,13 @@ body {
   height: 100%;
 }
 body {
-  min-height: 100%;
   margin: 0;
+    min-height: 100%;
 }
 div.form-wrapper {
   display: table;
-  width: 100%;
   height: 100%;
+    width: 100%;
 }
 div.form-wrapper form {
   display: table-cell;
@@ -19,14 +19,18 @@ div.form-wrapper form {
 input[type=text],
 input[type=password],
 input[type=submit] {
-  padding: 10px;
-  margin: 3px;
-  border-radius: 3px;
   border: 1px solid lightblue;
+    border-radius: 3px;
+    margin: 3px;
+    padding: 10px;
+}
+
+.loginform input[type=submit] {
+    width: 65px;
 }
 input[type=submit] {
   background: #3383ff;
-  cursor: pointer;
   border: 1px;
   color: whitesmoke;
+    cursor: pointer;
 }

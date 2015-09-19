@@ -11,6 +11,8 @@ handlers:
 
 - url: /css
   static_dir: tmpls/css
+- url: /js
+  static_dir: tmpls/js
 
 - url: .*
   script: main.app
