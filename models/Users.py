@@ -5,4 +5,3 @@ class User(auth_models.User):
     name = ndb.StringProperty()
     email = ndb.StringProperty()
     phone = ndb.IntegerProperty()
-    pass
