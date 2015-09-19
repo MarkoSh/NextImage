@@ -1,5 +1,6 @@
 from google.appengine.api import users
 import webapp2, jinja2, os
+from models.Users import User
 
 JINJA_ENVIRONMENT = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
@@ -8,7 +9,7 @@ JINJA_ENVIRONMENT = jinja2.Environment(
 TEMPLATES_PATH = "tmpls/"
 
 app_config = {
-       'webapp2_extras.auth': {
+        'webapp2_extras.auth': {
         'user_model': User
     }
 }
@@ -35,4 +36,4 @@ class MainHandler(webapp2.RequestHandler):
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler)
-], debug=True)
+], app_config = app_config)
