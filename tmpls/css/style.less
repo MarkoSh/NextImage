@@ -16,6 +16,12 @@ div {
       vertical-align: middle;
     }
   }
+  &#ytbg {
+    position: fixed;
+    z-index: -99;
+    width: 100%;
+    height: 100%;
+  }
 }
 input[type=text],
 input[type=password],
@@ -35,5 +41,144 @@ input[type=submit] {
   background: #3383ff;
   border: 1px;
   color: whitesmoke;
-  cursor: pointer;
+}
+
+@-webkit-keyframes ytbgFadeInOut {
+  0% {
+    opacity: 1;
+  }
+  17% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0;
+  }
+  92% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes ytbgFadeInOut {
+  0% {
+    opacity: 1;
+  }
+  17% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0;
+  }
+  92% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes ytbgFadeInOut {
+  0% {
+    opacity: 1;
+  }
+  17% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0;
+  }
+  92% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes ytbgFadeInOut {
+  0% {
+    opacity: 1;
+  }
+  17% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0;
+  }
+  92% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes ytbgFadeInOut {
+  0% {
+    opacity: 1;
+  }
+  17% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0;
+  }
+  92% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#ytbg {
+  img {
+    animation-duration: 16s;
+    -moz-animation-duration: 16s;
+    -o-animation-duration: 16s;
+    -webkit-animation-duration: 16s;
+    animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+
+    -o-animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+    animation-name: ytbgFadeInOut;
+    -moz-animation-name: ytbgFadeInOut;
+
+    -o-animation-name: ytbgFadeInOut;
+    -webkit-animation-name: ytbgFadeInOut;
+    animation-timing-function: ease-in-out;
+    -moz-animation-timing-function: ease-in-out;
+
+    -o-animation-timing-function: ease-in-out;
+    -webkit-animation-timing-function: ease-in-out;
+    left: 0;
+    position: absolute;
+    &:nth-of-type(1) {
+      animation-delay: 16s;
+      -moz-animation-delay: 16s;
+      -o-animation-delay: 16s;
+      -webkit-animation-delay: 16s;
+    }
+    &:nth-of-type(2) {
+      animation-delay: 12s;
+      -moz-animation-delay: 12s;
+      -o-animation-delay: 12s;
+      -webkit-animation-delay: 12s;
+    }
+    &:nth-of-type(3) {
+      animation-delay: 8s;
+      -moz-animation-delay: 8s;
+      -o-animation-delay: 8s;
+      -webkit-animation-delay: 8s;
+    }
+    &:nth-of-type(4) {
+      animation-delay: 4s;
+      -moz-animation-delay: 4s;
+      -o-animation-delay: 4s;
+      -webkit-animation-delay: 4s;
+    }
+  }
 }

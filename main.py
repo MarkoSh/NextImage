@@ -35,7 +35,12 @@ class MainHandler(webapp2.RequestHandler):
         self.response.write(template.render(template_values))
 
     def post(self):
-        print self.request.path
+        if self.request.path == 'checkname':
+            print 'Checking name...'
+        if self.request.get('sigbtn'):
+            print 'Registering user...'
+        if self.request.get('logbtn'):
+            print 'Logging user...'
 
 
 app = webapp2.WSGIApplication([
