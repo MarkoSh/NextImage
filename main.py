@@ -7,6 +7,12 @@ JINJA_ENVIRONMENT = jinja2.Environment(
     autoescape=True)
 TEMPLATES_PATH = "tmpls/"
 
+app_config = {
+       'webapp2_extras.auth': {
+        'user_model': User
+    }
+}
+
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         template_values = {
