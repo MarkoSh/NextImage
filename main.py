@@ -23,17 +23,12 @@ class MainHandler(webapp2.RequestHandler):
         user = users.get_current_user()
         if user:
             template_values = {
-                'title': 'Hello here, ' + user.nickname(),
+                'title': 'Hello there, ' + user.nickname(),
                 'login': True
-            }
-        else:
-            template_values = {
-                'title': 'Login page',
-                'login': False
             }
         template = JINJA_ENVIRONMENT.get_template(TEMPLATES_PATH + '_layout.html')
         self.response.write(template.render(template_values))
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler)
-], app_config = app_config)
+], debug=True, config = app_config)
