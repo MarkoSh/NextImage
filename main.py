@@ -1,6 +1,11 @@
+import os
+
 from google.appengine.api import users
-import webapp2, jinja2, os
+import webapp2
+import jinja2
+
 from models.Users import User
+
 
 JINJA_ENVIRONMENT = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
@@ -29,6 +34,12 @@ class MainHandler(webapp2.RequestHandler):
         template = JINJA_ENVIRONMENT.get_template(TEMPLATES_PATH + '_layout.html')
         self.response.write(template.render(template_values))
 
+    def post(self):
+        print self.request.path
+
+
 app = webapp2.WSGIApplication([
-    ('/', MainHandler)
+                                  ('/', MainHandler),
+                                  ('/login', MainHandler),
+                                  ('/checkname', MainHandler),
 ], debug=True, config = app_config)
