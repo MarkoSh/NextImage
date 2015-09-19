@@ -26,7 +26,6 @@ input[type=text],
 input[type=password] {
     background: rgba(255, 255, 255, 0.8);
 }
-
 input[type=text],
 input[type=password],
 input[type=submit] {
@@ -35,11 +34,9 @@ input[type=submit] {
     margin: 3px;
     padding: 10px;
 }
-
 #loginform input[type=submit] {
     width: 65px;
 }
-
 #loginform input {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
