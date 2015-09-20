@@ -3,6 +3,7 @@ import os
 from google.appengine.api import users
 import webapp2
 import jinja2
+from webapp2_extras.auth import InvalidAuthIdError, InvalidPasswordError
 
 from models.Users import User
 
@@ -47,54 +48,41 @@ class MainHandler(webapp2.RequestHandler):
 
             if self.request.get('sigbtn'):
                 print 'Registering user {}...'.format(login)
-                users = User.query(User.email == login).fetch()
-                if len(users):
-                    template_values = {
-                        'title': 'Sorry, but user already here...',
-                        'login': False
-                    }
-                else:
-
-                    if "@" in login and password.__len__() > 6:
-                        unique_properties = ['email_address']
-                        user = User.create_user(login, unique_properties, email_address=login, password_raw=password,
-                                                verified=False)
-                        if not user[0]:
-                            template_values = {
-                                'title': 'Unable to create user',
-                                'login': True
-                            }
-                            print 'Unable to create user {}, duplicating key {}'.format(login, user[1])
-                        else:
-                            template_values = {
-                                'title': 'Now you can create everything',
-                                'login': True
-                            }
-                            print 'Six ass full creating user {}'.format(login)
+                if "@" in login and password.__len__() > 6:
+                    unique_properties = ['email_address']
+                    user = User.create_user(login, unique_properties, email_address=login, password_raw=password,
+                                            verified=False)
+                    if not user[0]:
+                        template_values = {
+                            'title': 'May be you can try log in instead?',
+                            'login': False
+                        }
+                        print 'Unable to create user {}, duplicating key {}'.format(login, user[1])
+                    else:
+                        template_values = {
+                            'title': 'Now you can create everything',
+                            'login': True
+                        }
+                        print 'Sixassfull creating user {}'.format(login)
 
 
             if self.request.get('logbtn'):
                 print 'Logging as {}...'.format(login)
-                user = User.query(User.email == login, User.password == password).fetch(1)
-                if len(user):
+                try:
+                    user = User.get_by_auth_password(login, password)
+                    username = user.email_address
+                    if user.name: username = user.name
                     template_values = {
-                        'title': 'Hi there',
+                        'title': 'Hi there, {}'.format(username),
                         'login': True
                     }
-                else:
-                    user = User.query(User.email == login).fetch()
-                    if len(user):
-                        print 'Incorret password for {}'.format(login)
-                        template_values = {
+                    print 'Sixassfull logging user {}'.format(login)
+                except (InvalidPasswordError, InvalidAuthIdError) as e:
+                    template_values = {
                             'title': 'Ouch, you may be wrong',
                             'login': False
                         }
-                    else:
-                        print 'User {} not found'.format(login)
-                        template_values = {
-                            'title': 'Hey, you not here yet, wanna sign in?',
-                            'login': False
-                        }
+                    print "Auth error {}".format(type(e))
             template = JINJA_ENVIRONMENT.get_template(TEMPLATES_PATH + '_layout.html')
             self.response.write(template.render(template_values))
 
