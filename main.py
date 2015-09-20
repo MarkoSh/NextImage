@@ -73,7 +73,7 @@ class MainHandler(webapp2.RequestHandler):
             if self.request.get('logbtn'):
                 print 'Logging as {}...'.format(login)
                 try:
-                    print '6sfull logging user {}'.format(login)
+                    print '6sfull logging user {} '.format(login)
                     self.redirect('/')
                 except (InvalidPasswordError, InvalidAuthIdError) as e:
                     template_values = {
