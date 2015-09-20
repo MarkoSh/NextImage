@@ -5,8 +5,12 @@
     <div style='background-image: url("/imgs/bg4.jpg")'></div>
 </div>
 <div class="loginform-wrapper">
-    <form novalidate="novalidate" ng-controller="loginFormController" ng-submit="submit()" method="post" action="/"
+    <form novalidate="novalidate" ng-controller="loginFormController" ng-submit="LoginForm.$valid && submit()"
+          method="post" action="/login"
           name="LoginForm" id="LoginForm">
+        <div class="sitelogo">
+            FryPic
+        </div>
         <div>
             <input ng-change="checkname()" ng-model="LoginFormData.login" type="email" name="login" id="login"
                    placeholder="E-Mail" value="test@test.com" required/>

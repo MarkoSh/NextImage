@@ -6,6 +6,36 @@ body {
   margin: 0;
     min-height: 100%;
 }
+
+div.page-wrapper {
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+
+div.page-wrapper .content {
+    display: table-row;
+    height: inherit;
+}
+
+div.page-wrapper .content .content-self {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2em 1em;
+    width: 990px;
+}
+
+div.page-wrapper .footer {
+    display: table;
+    height: 3em;
+    width: 100%;
+}
+
+div.page-wrapper .footer .footer-text {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
 div.loginform-wrapper {
   display: table;
   height: 100%;
@@ -17,11 +47,16 @@ div.loginform-wrapper form {
   vertical-align: middle;
 }
 
+div.loginform-wrapper form div.sitelogo {
+    color: whitesmoke;
+    font-family: 'Bad Script', cursive;
+    font-size: 3em;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+}
 div.loginform-wrapper form#LoginForm input[type=email],
 div.loginform-wrapper form#LoginForm input[type=password] {
     background: rgba(255, 255, 255, 0.8);
 }
-
 div.loginform-wrapper form#LoginForm input[type=email],
 div.loginform-wrapper form#LoginForm input[type=password],
 div.loginform-wrapper form#LoginForm input[type=submit] {

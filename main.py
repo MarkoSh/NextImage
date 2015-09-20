@@ -17,8 +17,11 @@ TEMPLATES_PATH = "tmpls/"
 app_config = {
         'webapp2_extras.auth': {
         'user_model': User
+        },
+        'webapp2_extras.sessions': {
+            'secret_key': 'mimimimimimimimi'
+        }
     }
-}
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
@@ -27,6 +30,7 @@ class MainHandler(webapp2.RequestHandler):
                 'login': False
             }
         user = users.get_current_user()
+        print user
         if user:
             template_values = {
                 'title': 'Hello there, ' + user.nickname(),
@@ -63,20 +67,14 @@ class MainHandler(webapp2.RequestHandler):
                             'title': 'Now you can create everything',
                             'login': True
                         }
-                        print 'Sixassfull creating user {}'.format(login)
+                        print '6sfull creating user {}'.format(login)
 
 
             if self.request.get('logbtn'):
                 print 'Logging as {}...'.format(login)
                 try:
-                    user = User.get_by_auth_password(login, password)
-                    username = user.email_address
-                    if user.name: username = user.name
-                    template_values = {
-                        'title': 'Hi there, {}'.format(username),
-                        'login': True
-                    }
-                    print 'Sixassfull logging user {}'.format(login)
+                    print '6sfull logging user {}'.format(login)
+                    self.redirect('/')
                 except (InvalidPasswordError, InvalidAuthIdError) as e:
                     template_values = {
                             'title': 'Ouch, you may be wrong',

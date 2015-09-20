@@ -6,6 +6,31 @@ body {
   min-height: 100%;
 }
 div {
+  &.page-wrapper {
+    display: table;
+    height: 100%;
+    width: 100%;
+    & .content {
+      display: table-row;
+      height: inherit;
+      & .content-self {
+        padding: 2em 1em;
+        width: 990px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+    }
+    & .footer {
+      height: 3em;
+      display: table;
+      width: 100%;
+      & .footer-text {
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle;
+      }
+    }
+  }
   &.loginform-wrapper {
     display: table;
     width: 100%;
@@ -14,6 +39,12 @@ div {
       display: table-cell;
       text-align: center;
       vertical-align: middle;
+      & div.sitelogo {
+        font-size: 3em;
+        color: whitesmoke;
+        text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+        font-family: 'Bad Script', cursive;
+      }
       &#LoginForm {
         input[type=email],
         input[type=password] {
