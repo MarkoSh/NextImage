@@ -35,8 +35,9 @@ class MainHandler(webapp2.RequestHandler):
         self.response.write(template.render(template_values))
 
     def post(self):
-        if self.request.path == 'checkname':
-            print 'Checking name...'
+        if "checkname" in self.request.path:
+            login = self.request.POST['login'].strip()
+            print 'Checking name {}...'.format(login)
         if self.request.get('sigbtn'):
             print 'Registering user...'
             user = User()

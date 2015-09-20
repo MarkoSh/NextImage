@@ -1,10 +1,11 @@
-function loginFormController($scope) {
+function loginFormController($scope, $http) {
+    $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
     $scope.submit = function () {
 
     };
     $scope.checkname = function () {
-        if ($scope.LoginFormData.login.length > 3) {
-            console.warn($scope);
+        if ($scope.LoginFormData.login.length > 0) {
+            $http.post('/checkname', "login=" + $scope.LoginFormData.login);
         }
-    }
+    };
 }
