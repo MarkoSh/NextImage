@@ -54,13 +54,24 @@ class MainHandler(webapp2.RequestHandler):
                         'login': False
                     }
                 else:
-                    template_values = {
-                        'title': 'Now you can create everything',
-                        'login': True
-                    }
-                    user = User()
 
-                    # user.put()
+                    if "@" in login and password.__len__() > 6:
+                        unique_properties = ['email_address']
+                        user = User.create_user(login, unique_properties, email_address=login, password_raw=password,
+                                                verified=False)
+                        if not user[0]:
+                            template_values = {
+                                'title': 'Unable to create user',
+                                'login': True
+                            }
+                            print 'Unable to create user {}, duplicating key {}'.format(login, user[1])
+                        else:
+                            template_values = {
+                                'title': 'Now you can create everything',
+                                'login': True
+                            }
+                            print 'Six ass full creating user {}'.format(login)
+
 
             if self.request.get('logbtn'):
                 print 'Logging as {}...'.format(login)
