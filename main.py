@@ -35,15 +35,50 @@ class MainHandler(webapp2.RequestHandler):
         self.response.write(template.render(template_values))
 
     def post(self):
-        if "checkname" in self.request.path:
-            login = self.request.POST['login'].strip()
-            print 'Checking name {}...'.format(login)
-        if self.request.get('sigbtn'):
-            print 'Registering user...'
-            user = User()
-            user.name
-        if self.request.get('logbtn'):
-            print 'Logging user...'
+        if self.request.get('login'):
+            template_values = {
+                'title': 'Login page',
+                'login': False
+            }
+            login = self.request.get('login')
+            password = self.request.get('password')
+            if "checkname" in self.request.path:
+                print 'Checking name {}...'.format(login)
+
+            if self.request.get('sigbtn'):
+                print 'Registering user {}...'.format(login)
+                users = User.query(User.name == login).fetch()
+                if len(users):
+                    template_values = {
+                        'title': 'Sorry, but you already here...',
+                        'login': False
+                    }
+
+            if self.request.get('logbtn'):
+                print 'Logging user {}...'.format(login)
+                user = User.query(User.name == login, User.password == password).fetch(1)
+                if len(user):
+                    template_values = {
+                        'title': 'Hi there',
+                        'login': True
+                    }
+                else:
+                    user = User.query(User.name == login).fetch()
+                    if len(user):
+                        print 'Incorret password for {}'.format(login)
+                        template_values = {
+                            'title': 'Ouch, you may be wrong',
+                            'login': False
+                        }
+                    else:
+                        print 'User {} not found'.format(login)
+                        template_values = {
+                            'title': 'Hey, you not here yet, wanna sign in?',
+                            'login': False
+                        }
+            template = JINJA_ENVIRONMENT.get_template(TEMPLATES_PATH + '_layout.html')
+            self.response.write(template.render(template_values))
+
 
 
 app = webapp2.WSGIApplication([
