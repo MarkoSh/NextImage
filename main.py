@@ -55,7 +55,7 @@ class MainHandler(webapp2.RequestHandler):
                     }
 
             if self.request.get('logbtn'):
-                print 'Logging user {}...'.format(login)
+                print 'Logging as {}...'.format(login)
                 user = User.query(User.name == login, User.password == password).fetch(1)
                 if len(user):
                     template_values = {
