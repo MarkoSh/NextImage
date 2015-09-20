@@ -47,23 +47,31 @@ class MainHandler(webapp2.RequestHandler):
 
             if self.request.get('sigbtn'):
                 print 'Registering user {}...'.format(login)
-                users = User.query(User.name == login).fetch()
+                users = User.query(User.email == login).fetch()
                 if len(users):
                     template_values = {
-                        'title': 'Sorry, but you already here...',
+                        'title': 'Sorry, but user already here...',
                         'login': False
                     }
+                else:
+                    template_values = {
+                        'title': 'Now you can create everything',
+                        'login': True
+                    }
+                    user = User()
+
+                    # user.put()
 
             if self.request.get('logbtn'):
                 print 'Logging as {}...'.format(login)
-                user = User.query(User.name == login, User.password == password).fetch(1)
+                user = User.query(User.email == login, User.password == password).fetch(1)
                 if len(user):
                     template_values = {
                         'title': 'Hi there',
                         'login': True
                     }
                 else:
-                    user = User.query(User.name == login).fetch()
+                    user = User.query(User.email == login).fetch()
                     if len(user):
                         print 'Incorret password for {}'.format(login)
                         template_values = {
