@@ -37,19 +37,21 @@ input[type=submit] {
   padding: 10px;
 }
 
-#loginform {
+#LoginForm {
   input[type=submit] {
+    background: #3383ff;
+    border: 1px;
+    color: whitesmoke;
     width: 65px;
+  }
+  input[type=submit]:disabled {
+    background: rgba(60, 133, 255, 0.50);
   }
   input {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   }
 }
-input[type=submit] {
-  background: #3383ff;
-  border: 1px;
-  color: whitesmoke;
-}
+
 
 @-webkit-keyframes ytbgFadeInOut {
   0% {
@@ -141,7 +143,7 @@ input[type=submit] {
   }
 }
 #ytbg {
-  img {
+  div {
     animation-duration: 16s;
     -moz-animation-duration: 16s;
     -o-animation-duration: 16s;
@@ -149,18 +151,22 @@ input[type=submit] {
     animation-iteration-count: infinite;
     -moz-animation-iteration-count: infinite;
     -o-animation-iteration-count: infinite;
-
     -webkit-animation-iteration-count: infinite;
     animation-name: ytbgFadeInOut;
     -moz-animation-name: ytbgFadeInOut;
-    -o-animation-name: ytbgFadeInOut;
 
+    -o-animation-name: ytbgFadeInOut;
     -webkit-animation-name: ytbgFadeInOut;
     animation-timing-function: ease-in-out;
     -moz-animation-timing-function: ease-in-out;
-    -o-animation-timing-function: ease-in-out;
 
+    -o-animation-timing-function: ease-in-out;
     -webkit-animation-timing-function: ease-in-out;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    background-size: cover;
+    height: 100%;
     left: 0;
     position: absolute;
     width: 100%;

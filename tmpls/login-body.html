@@ -1,20 +1,25 @@
 <div id="ytbg">
-    <img src="/imgs/bg1.jpg"/>
-    <img src="/imgs/bg2.jpg"/>
-    <img src="/imgs/bg3.jpg"/>
-    <img src="/imgs/bg4.jpg"/>
+    <div style='background-image: url("/imgs/bg1.jpg")'></div>
+    <div style='background-image: url("/imgs/bg2.jpg")'></div>
+    <div style='background-image: url("/imgs/bg3.jpg")'></div>
+    <div style='background-image: url("/imgs/bg4.jpg")'></div>
 </div>
 <div class="loginform-wrapper">
-    <form method="post" action="/login" id="loginform">
+    <form novalidate="novalidate" ng-controller="FormController" ng-submit="submit()" method="post" action="/"
+          name="LoginForm" id="LoginForm">
         <div>
-            <input type="text" name="login" id="login" placeholder="Login / E-Mail"/>
+            <input ng-change="checkname()" ng-model="LoginFormData.login" type="text" name="login" id="login"
+                   placeholder="Login / E-Mail" required/>
         </div>
         <div>
-            <input type="password" name="password" id="password" placeholder="Password"/>
+            <input ng-model="LoginFormData.password" type="password" name="password" id="password"
+                   placeholder="Password" required/>
         </div>
         <div>
-            <input type="submit" name="logbtn" id="logbtn" value="Log in"/>
-            <input type="submit" name="sigbtn" id="sigbtn" value="Sign in"/>
+            <input ng-model="LoginFormData.logbtn" ng-click="submit()" ng-disabled="LoginForm.$invalid" type="submit"
+                   name="logbtn" id="logbtn" value="Log in"/>
+            <input ng-model="LoginFormData.sigbtn" ng-click="submit()" disabled type="submit" name="sigbtn" id="sigbtn"
+                   value="Sign in"/>
         </div>
     </form>
 </div>
