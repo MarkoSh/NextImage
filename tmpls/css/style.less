@@ -14,6 +14,32 @@ div {
       display: table-cell;
       text-align: center;
       vertical-align: middle;
+      &#LoginForm {
+        input[type=text],
+        input[type=password] {
+          background: rgba(255, 255, 255, 0.80);
+        }
+        input[type=text],
+        input[type=password],
+        input[type=submit] {
+          border: 1px solid lightblue;
+          border-radius: 3px;
+          margin: 3px;
+          padding: 10px;
+        }
+        input[type=submit] {
+          background: #3383ff;
+          border: 1px;
+          color: whitesmoke;
+          width: 65px;
+        }
+        input[type=submit]:disabled {
+          background: rgba(60, 133, 255, 0.70);
+        }
+        input {
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+      }
     }
   }
   &#ytbg {
@@ -23,35 +49,6 @@ div {
     height: 100%;
   }
 }
-
-input[type=text],
-input[type=password] {
-  background: rgba(255, 255, 255, 0.80);
-}
-input[type=text],
-input[type=password],
-input[type=submit] {
-  border: 1px solid lightblue;
-  border-radius: 3px;
-  margin: 3px;
-  padding: 10px;
-}
-
-#LoginForm {
-  input[type=submit] {
-    background: #3383ff;
-    border: 1px;
-    color: whitesmoke;
-    width: 65px;
-  }
-  input[type=submit]:disabled {
-    background: rgba(60, 133, 255, 0.50);
-  }
-  input {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  }
-}
-
 
 @-webkit-keyframes ytbgFadeInOut {
   0% {

@@ -5,7 +5,7 @@
     <div style='background-image: url("/imgs/bg4.jpg")'></div>
 </div>
 <div class="loginform-wrapper">
-    <form novalidate="novalidate" ng-controller="FormController" ng-submit="submit()" method="post" action="/"
+    <form novalidate="novalidate" ng-controller="loginFormController" ng-submit="submit()" method="post" action="/"
           name="LoginForm" id="LoginForm">
         <div>
             <input ng-change="checkname()" ng-model="LoginFormData.login" type="text" name="login" id="login"

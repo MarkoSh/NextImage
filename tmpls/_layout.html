@@ -9,11 +9,11 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.5/angular.min.js"></script>
 </head>
 <body ng-app>
-    {% if not login %}
-        {% include 'tmpls/login-body.html' %}
-    {% else %}
-        {% include 'tmpls/user-profile.html' %}
-    {% endif %}
+{% if not login %}
+{% include 'tmpls/login-body.html' %}
+{% else %}
+{% include 'tmpls/user-profile.html' %}
+{% endif %}
     <script src="/js/script.js"></script>
 </body>
 </html>

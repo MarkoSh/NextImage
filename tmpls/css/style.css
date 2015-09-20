@@ -16,38 +16,40 @@ div.loginform-wrapper form {
   text-align: center;
   vertical-align: middle;
 }
-div#ytbg {
-    height: 100%;
-    position: fixed;
-    width: 100%;
-    z-index: -99;
-}
-input[type=text],
-input[type=password] {
+
+div.loginform-wrapper form#LoginForm input[type=text],
+div.loginform-wrapper form#LoginForm input[type=password] {
     background: rgba(255, 255, 255, 0.8);
 }
-input[type=text],
-input[type=password],
-input[type=submit] {
-  border: 1px solid lightblue;
+
+div.loginform-wrapper form#LoginForm input[type=text],
+div.loginform-wrapper form#LoginForm input[type=password],
+div.loginform-wrapper form#LoginForm input[type=submit] {
+    border: 1px solid lightblue;
     border-radius: 3px;
     margin: 3px;
     padding: 10px;
 }
 
-#LoginForm input[type=submit] {
-  background: #3383ff;
-  border: 1px;
-  color: whitesmoke;
+div.loginform-wrapper form#LoginForm input[type=submit] {
+    background: #3383ff;
+    border: 1px;
+    color: whitesmoke;
     width: 65px;
 }
 
-#LoginForm input[type=submit]:disabled {
-    background: rgba(60, 133, 255, 0.5);
+div.loginform-wrapper form#LoginForm input[type=submit]:disabled {
+    background: rgba(60, 133, 255, 0.7);
 }
 
-#LoginForm input {
+div.loginform-wrapper form#LoginForm input {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+div#ytbg {
+    height: 100%;
+    position: fixed;
+    width: 100%;
+    z-index: -99;
 }
 @-webkit-keyframes ytbgFadeInOut {
     0% {
@@ -134,7 +136,6 @@ input[type=submit] {
         opacity: 1;
     }
 }
-
 #ytbg div {
     animation-duration: 16s;
     -moz-animation-duration: 16s;
@@ -160,28 +161,24 @@ input[type=submit] {
     position: absolute;
     width: 100%;
 }
-
 #ytbg div:nth-of-type(1) {
     animation-delay: 12s;
     -moz-animation-delay: 12s;
     -o-animation-delay: 12s;
     -webkit-animation-delay: 12s;
 }
-
 #ytbg div:nth-of-type(2) {
     animation-delay: 8s;
     -moz-animation-delay: 8s;
     -o-animation-delay: 8s;
     -webkit-animation-delay: 8s;
 }
-
 #ytbg div:nth-of-type(3) {
     animation-delay: 4s;
     -moz-animation-delay: 4s;
     -o-animation-delay: 4s;
     -webkit-animation-delay: 4s;
 }
-
 #ytbg div:nth-of-type(4) {
     animation-delay: 0s;
     -moz-animation-delay: 0s;
