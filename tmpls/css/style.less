@@ -26,15 +26,22 @@ ul {
     margin: 0;
     padding: 0;
     position: fixed;
-    top: 0;
-    left: -130px;
+    top: 1em;
+    left: 0;
     li {
       a {
-        width: 160px;
+        width: 140px;
         display: block;
         padding: 0.3em;
+        background-color: rgba(51, 122, 183, 0.70);
+        color: whitesmoke;
+        text-decoration: none;
+        margin-bottom: 1px;
         .material-icons {
           float: right;
+        }
+        &:hover {
+          background-color: rgba(51, 122, 183, 0.90);
         }
       }
     }
@@ -179,6 +186,13 @@ div {
   }
 }
 
+@media (max-width: 1300px) {
+  ul {
+    &#menu {
+      left: -110px;
+    }
+  }
+}
 @-webkit-keyframes blockFadeOut {
   from {
     opacity: 1;

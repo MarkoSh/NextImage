@@ -18,19 +18,27 @@ a.sitelogo {
   float: left;
 }
 ul#menu {
-    left: -130px;
+    left: 0;
   margin: 0;
   padding: 0;
   position: fixed;
-  top: 0;
+    top: 1em;
 }
 ul#menu li a {
+    background-color: rgba(51, 122, 183, 0.7);
+    color: whitesmoke;
     display: block;
+    margin-bottom: 1px;
     padding: 0.3em;
-  width: 160px;
+    text-decoration: none;
+    width: 140px;
 }
 ul#menu li a .material-icons {
   float: right;
+}
+
+ul#menu li a:hover {
+    background-color: rgba(51, 122, 183, 0.9);
 }
 div.page-wrapper {
   display: table;
@@ -159,6 +167,12 @@ div.showme {
       font-size: 1.5em;
     text-align: center;
       width: inherit;
+  }
+}
+
+@media (max-width: 1300px) {
+    ul#menu {
+        left: -110px;
   }
 }
 @-webkit-keyframes blockFadeOut {
