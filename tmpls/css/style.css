@@ -14,32 +14,74 @@ body {
 }
 a.sitelogo {
     color: #337ab7;
+    display: block;
+    float: left;
+    margin-left: 50px;
 }
 
-.footer-text {
-    font-size: 0.7em;
+ul#menu {
+    display: block;
+    left: -150px;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    top: 0;
+}
+
+ul#menu .material-icons {
+    float: right;
+}
+
+ul#menu li {
+    display: block;
+    margin-bottom: 1px;
+    width: 200px;
+}
+
+ul#menu li a {
+    background-color: darkblue;
+    color: whitesmoke;
+    display: block;
+    opacity: 0.5;
+    padding: 1em;
+    text-decoration: none;
+}
+
+ul#menu li a:hover {
+    background-color: #0000cd;
+    opacity: 1;
 }
 div.page-wrapper {
     display: table;
     height: 100%;
     width: 100%;
 }
-div.page-wrapper .footer {
+
+div.header {
+    height: 5em;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0.5em;
+    width: 990px;
+}
+
+div.footer {
+    background: lightgray;
     display: table;
-    height: 3em;
+    height: 2.1em;
     width: 100%;
 }
-div.page-wrapper .footer .footer-text {
+
+div.footer .footer-text {
     display: table-cell;
+    font-size: 0.7em;
     text-align: center;
     vertical-align: middle;
 }
-
 div.content {
     display: table-row;
     height: inherit;
 }
-
 div.content-self {
     margin-left: auto;
     margin-right: auto;
@@ -108,8 +150,12 @@ div.notify .notify-wrapper .notify-message {
     padding: 0 1em;
     vertical-align: middle;
 }
-
 @media (max-width: 990px) {
+    div.header {
+        height: 4em;
+        width: 100%;
+    }
+
     div.content-self {
         width: 100%;
     }
@@ -117,15 +163,26 @@ div.notify .notify-wrapper .notify-message {
     .sitelogo {
         font-size: 2em;
     }
-}
 
+    ul.top-menu {
+        display: none;
+    }
+}
 @media (max-width: 320px) {
+    div.header {
+        height: 3em;
+        width: 100%;
+    }
+
     div.content-self {
         width: 310px;
     }
 
-    .sitelogo {
+    a.sitelogo {
         font-size: 1.5em;
+        margin: 0;
+        text-align: center;
+        width: 100%;
     }
 }
 @-webkit-keyframes ytbgFadeInOut {
