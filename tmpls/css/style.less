@@ -15,24 +15,19 @@ body {
 
 a {
   &.sitelogo {
+
     color: #337ab7;
   }
+}
+
+.footer-text {
+  font-size: 0.7em;
 }
 div {
   &.page-wrapper {
     display: table;
     height: 100%;
     width: 100%;
-    & .content {
-      display: table-row;
-      height: inherit;
-      & .content-self {
-        padding: 2em 1em;
-        width: 990px;
-        margin-right: auto;
-        margin-left: auto;
-      }
-    }
     & .footer {
       height: 3em;
       display: table;
@@ -43,6 +38,16 @@ div {
         vertical-align: middle;
       }
     }
+  }
+  &.content {
+    display: table-row;
+    height: inherit;
+  }
+  &.content-self {
+    padding: 2em 1em;
+    width: 990px;
+    margin-right: auto;
+    margin-left: auto;
   }
   &.loginform-wrapper {
     display: table;
@@ -110,6 +115,29 @@ div {
   }
 }
 
+@media (max-width: 990px) {
+  div {
+    &.content-self {
+      width: 100%;
+    }
+  }
+
+  .sitelogo {
+    font-size: 2em;
+  }
+}
+
+@media (max-width: 320px) {
+  div {
+    &.content-self {
+      width: 310px;
+    }
+  }
+
+  .sitelogo {
+    font-size: 1.5em;
+  }
+}
 @-webkit-keyframes ytbgFadeInOut {
   0% {
     opacity: 1;

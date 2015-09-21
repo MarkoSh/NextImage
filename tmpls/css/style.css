@@ -15,20 +15,14 @@ body {
 a.sitelogo {
     color: #337ab7;
 }
+
+.footer-text {
+    font-size: 0.7em;
+}
 div.page-wrapper {
     display: table;
     height: 100%;
     width: 100%;
-}
-div.page-wrapper .content {
-    display: table-row;
-    height: inherit;
-}
-div.page-wrapper .content .content-self {
-    margin-left: auto;
-    margin-right: auto;
-    padding: 2em 1em;
-    width: 990px;
 }
 div.page-wrapper .footer {
     display: table;
@@ -39,6 +33,18 @@ div.page-wrapper .footer .footer-text {
     display: table-cell;
     text-align: center;
     vertical-align: middle;
+}
+
+div.content {
+    display: table-row;
+    height: inherit;
+}
+
+div.content-self {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2em 1em;
+    width: 990px;
 }
 div.loginform-wrapper {
   display: table;
@@ -101,6 +107,26 @@ div.notify .notify-wrapper .notify-message {
     display: table-cell;
     padding: 0 1em;
     vertical-align: middle;
+}
+
+@media (max-width: 990px) {
+    div.content-self {
+        width: 100%;
+    }
+
+    .sitelogo {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 320px) {
+    div.content-self {
+        width: 310px;
+    }
+
+    .sitelogo {
+        font-size: 1.5em;
+    }
 }
 @-webkit-keyframes ytbgFadeInOut {
     0% {
