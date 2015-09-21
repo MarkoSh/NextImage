@@ -36,7 +36,6 @@ ul#menu li a {
 ul#menu li a .material-icons {
   float: right;
 }
-
 ul#menu li a:hover {
     background-color: rgba(51, 122, 183, 0.9);
 }
@@ -169,7 +168,6 @@ div.showme {
       width: inherit;
   }
 }
-
 @media (max-width: 1300px) {
     ul#menu {
         left: -110px;

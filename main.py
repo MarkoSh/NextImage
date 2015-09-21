@@ -43,7 +43,13 @@ class MainHandler(webapp2.RequestHandler):
             }
         if auth.get_auth().get_user_by_session():
             user_id = auth.get_auth().get_user_by_session()['user_id']
-            # self.redirect('/{}'.format(user_id))
+            if self.request.path == '/':
+                self.redirect('/{}'.format(user_id))
+            if self.request.path == '/logout':
+                auth.get_auth().unset_session()
+                self.redirect('/')
+                print 'Logout bye bye...'.format(login)
+                pass
             user = User.get_by_id(user_id)
             userURI = user.name if user.name else user_id
             name = user.name if user.name else user.email_address
@@ -66,6 +72,7 @@ class MainHandler(webapp2.RequestHandler):
             password = self.request.get('password')
             if "checkname" in self.request.path:
                 print 'Checking name {}...'.format(login)
+                # TODO проверка доступности логина, вернуть джисоном результат
 
             if self.request.get('sigbtn'):
                 print 'Registering user {}...'.format(login)
@@ -113,10 +120,18 @@ class MainHandler(webapp2.RequestHandler):
 
 app = webapp2.WSGIApplication([
                                   ('/', MainHandler),
-                                  ('/\d+', MainHandler),
                                   # TODO сделать отдельный обработчик для страниц пользователей, в будущем возможны не только цифровые идентификаторы
                                   ('/login', MainHandler),
                                   ('/logout', MainHandler),
                                   ('/checkname', MainHandler),
+                                  ('/feed', MainHandler),  # FeedHandler - обрабатываем ленту сети
+                                  ('/video', MainHandler),  # MediaFeedHandler - обрабатываем только медийную ленту
+                                  ('/audio', MainHandler),  # MediaFeedHandler - --//--
+                                  ('/im', MainHandler),  # ImHandler - обрабатываем сообщеня
+                                  ('/profile', MainHandler),  # ProfileHandler - обрабатываем профиль пользователя
+                                  ('/settings', MainHandler),  # ProfileHandler - --//--
+                                  ('/profile', MainHandler),  # ProfileHandler - --//--
+                                  ('/\d+', MainHandler),  # идентификатор пользователя
+                                  ('/g\d+', MainHandler),  # идентификатор группы
                                   #TODO сделать комплект обработчиков сервисных страниц
 ], debug=True, config = app_config)
