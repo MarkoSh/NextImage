@@ -48,7 +48,7 @@ class MainHandler(webapp2.RequestHandler):
             name = user.name if user.name else user.email_address
             if user:
                 template_values = {
-                    'title': 'Hello there, {}'.format(name),
+                    'title': 'Hi there, {}'.format(name),
                     'login': True,
                     'name': userURI
                 }
