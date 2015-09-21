@@ -75,6 +75,7 @@ class MainHandler(webapp2.RequestHandler):
                     if not user[0]:
                         template_values = {
                             'title': 'May be you can try log in instead?',
+                            'notify': 'May be you can try log in instead?',
                             'login': False
                         }
                         print 'Unable to create user {}, duplicating key {}'.format(login, user[1])
@@ -84,6 +85,9 @@ class MainHandler(webapp2.RequestHandler):
                             'login': True
                         }
                         print '6sfull creating user {}'.format(login)
+                        user_id = user[1].get_id()
+                        self.session_store.save_sessions(self.response)
+                        self.redirect('/{}'.format(user_id))
 
 
             if self.request.get('logbtn'):
@@ -97,6 +101,7 @@ class MainHandler(webapp2.RequestHandler):
                 except (InvalidPasswordError, InvalidAuthIdError) as e:
                     template_values = {
                             'title': 'Ouch, you may be wrong',
+                            'notify': 'Ouch, you may be wrong',
                             'login': False
                         }
                     print "Auth error {}".format(type(e))

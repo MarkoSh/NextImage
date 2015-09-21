@@ -12,9 +12,9 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.5/angular.min.js"></script>
 </head>
 <body ng-app>
-<div class="notify">
+<div class="notify{% if notify %} showme{% endif %}">
     <div class="notify-wrapper">
-        <div class="notify-message"></div>
+        <div class="notify-message">{{ notify }}</div>
     </div>
 </div>
 {% if not login %}
