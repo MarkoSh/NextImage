@@ -113,7 +113,9 @@ class MainHandler(webapp2.RequestHandler):
 app = webapp2.WSGIApplication([
                                   ('/', MainHandler),
                                   ('/\d+', MainHandler),
+                                  # TODO сделать отдельный обработчик для страниц пользователей, в будущем возможны не только цифровые идентификаторы
                                   ('/login', MainHandler),
                                   ('/logout', MainHandler),
                                   ('/checkname', MainHandler),
+                                  #TODO сделать комплект обработчиков сервисных страниц
 ], debug=True, config = app_config)

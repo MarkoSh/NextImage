@@ -18,16 +18,16 @@ a.sitelogo {
   float: left;
 }
 ul#menu {
+    left: -130px;
   margin: 0;
   padding: 0;
   position: fixed;
   top: 0;
-  left: -130px;
 }
 ul#menu li a {
+    display: block;
+    padding: 0.3em;
   width: 160px;
-  display: block;
-  padding: 0.3em;
 }
 ul#menu li a .material-icons {
   float: right;
@@ -38,38 +38,38 @@ div.page-wrapper {
   width: 100%;
 }
 div.header {
-  padding: 0.5em;
   height: 5em;
-  width: 990px;
   margin-left: auto;
   margin-right: auto;
+    padding: 0.5em;
+    width: 990px;
 }
 div.footer {
   background: lightgray;
-  height: 2.1em;
   display: table;
+    height: 2.1em;
   width: 100%;
 }
 div.footer .footer-text {
   display: table-cell;
+    font-size: 0.7em;
   text-align: center;
   vertical-align: middle;
-  font-size: 0.7em;
 }
 div.content {
   display: table-row;
   height: inherit;
 }
 div.content-self {
-  padding: 2em 1em;
-  width: 990px;
+    margin-left: auto;
   margin-right: auto;
-  margin-left: auto;
+    padding: 2em 1em;
+    width: 990px;
 }
 div.loginform-wrapper {
   display: table;
-  width: 100%;
   height: 100%;
+    width: 100%;
 }
 div.loginform-wrapper form {
   display: table-cell;
@@ -101,35 +101,34 @@ div.loginform-wrapper form#LoginForm input {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 div#ytbg {
+    height: 100%;
   position: fixed;
-  z-index: -99;
   width: 100%;
-  height: 100%;
+    z-index: -99;
 }
 div.notify {
   display: none;
+    height: 50px;
   padding: 0.5em;
   position: fixed;
   width: 100%;
-  height: 50px;
 }
 div.notify .notify-wrapper {
-  display: table;
-  color: whitesmoke;
   background-color: rgba(55, 55, 55, 0.5);
   border-radius: 3px;
+    color: whitesmoke;
+    display: table;
+    height: inherit;
+    margin-left: auto;
+    margin-right: auto;
   width: 300px;
-  height: inherit;
-  margin-left: auto;
-  margin-right: auto;
 }
 div.notify .notify-wrapper .notify-message {
   display: table-cell;
-  vertical-align: middle;
   padding: 0 1em;
+    vertical-align: middle;
 }
 div.showme {
-  display: block;
   animation-duration: 5s;
   -moz-animation-duration: 5s;
   -o-animation-duration: 5s;
@@ -146,6 +145,7 @@ div.showme {
   -moz-animation-timing-function: ease-in-out;
   -o-animation-timing-function: ease-in-out;
   -webkit-animation-timing-function: ease-in-out;
+    display: block;
   animation-fill-mode: both;
   -moz-animation-fill-mode: both;
   -o-animation-fill-mode: both;
@@ -156,9 +156,9 @@ div.showme {
     width: 100%;
   }
   a.sitelogo {
-    width: inherit;
+      font-size: 1.5em;
     text-align: center;
-    font-size: 1.5em;
+      width: inherit;
   }
 }
 @-webkit-keyframes blockFadeOut {
