@@ -44,12 +44,13 @@ class MainHandler(webapp2.RequestHandler):
             user_id = auth.get_auth().get_user_by_session()['user_id']
             # self.redirect('/{}'.format(user_id))
             user = User.get_by_id(user_id)
-
+            userURI = user.name if user.name else user_id
             name = user.name if user.name else user.email_address
             if user:
                 template_values = {
                     'title': 'Hello there, {}'.format(name),
-                    'login': True
+                    'login': True,
+                    'name': userURI
                 }
         template = JINJA_ENVIRONMENT.get_template(TEMPLATES_PATH + '_layout.html')
         self.response.write(template.render(template_values))

@@ -18,7 +18,21 @@
 {% if not login %}
 {% include 'tmpls/login-body.html' %}
 {% else %}
-{% include 'tmpls/profile-body.html' %}
+<div class="page-wrapper">
+    <div class="content">
+        <div class="content-self">
+            <a href="/{{ name }}" class="sitelogo">
+                FryPic
+            </a>
+            {% include 'tmpls/profile-body.html' %}
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-text">
+            FryPic - only here you can touch your reality
+        </div>
+    </div>
+</div>
 {% endif %}
     <script src="/js/script.js"></script>
 </body>
