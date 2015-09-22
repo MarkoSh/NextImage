@@ -10,11 +10,11 @@ handlers:
   upload: favicon\.ico
 
 - url: /css
-  static_dir: tmpls/css
+  static_dir: templates/css
 - url: /js
-  static_dir: tmpls/js
+  static_dir: templates/js
 - url: /imgs
-  static_dir: tmpls/imgs
+  static_dir: templates/imgs
 
 - url: .*
   script: main.app

@@ -12,7 +12,6 @@ JINJA_ENVIRONMENT = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)
-TEMPLATES_PATH = "tmpls/"
 
 app_config = {
         'webapp2_extras.auth': {
@@ -62,7 +61,7 @@ class MainHandler(webapp2.RequestHandler):
                 template_values['page'] = 'profile'
                 pass
 
-        template = JINJA_ENVIRONMENT.get_template(TEMPLATES_PATH + '_layout.html')
+        template = JINJA_ENVIRONMENT.get_template('_layout.html')
         self.response.write(template.render(template_values))
 
     def post(self):
@@ -95,9 +94,8 @@ class MainHandler(webapp2.RequestHandler):
                         print 'Unable to create user {}, duplicating key {}'.format(login, user[1])
                     else:
                         print '6sfull creating user {}'.format(login)
-
-                        user_id = auth.get_auth().get_user_by_password(login, password, remember=True, save_session=True)['user_id']
-                        self.session_store.save_sessions(self.response)
+                        user_id = user[1].get_id()
+                        auth.get_auth().set_session(auth.get_auth().store.user_to_dict(user[1]))
                         self.redirect('/{}'.format(user_id))
 
             if self.request.get('logbtn'):
@@ -115,7 +113,7 @@ class MainHandler(webapp2.RequestHandler):
                             'login': False
                         }
                     print "Auth error {}".format(type(e))
-            template = JINJA_ENVIRONMENT.get_template(TEMPLATES_PATH + '_layout.html')
+            template = JINJA_ENVIRONMENT.get_template('_layout.html')
             self.response.write(template.render(template_values))
 
 

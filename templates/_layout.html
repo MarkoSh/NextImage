@@ -18,7 +18,7 @@
     </div>
 </div>
 {% if not login %}
-{% include 'tmpls/login-body.html' %}
+{% include 'login-body.html' %}
 {% else %}
 <div class="page-wrapper">
     <div class="header-wrapper">
@@ -28,7 +28,7 @@
     </div>
     <div class="content">
         {% if page %}
-        {% include 'tmpls/' + page + '-body.html' %}
+        {% include page + '-body.html' %}
         {% endif %}
     </div>
     <div class="footer">
