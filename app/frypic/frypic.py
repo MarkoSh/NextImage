@@ -5,7 +5,7 @@ import jinja2
 from webapp2_extras import auth, sessions
 from webapp2_extras.auth import InvalidAuthIdError, InvalidPasswordError
 
-from models.Users import User
+from app.lib.models.Users import User
 
 
 JINJA_ENVIRONMENT = jinja2.Environment(

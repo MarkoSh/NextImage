@@ -13,7 +13,7 @@ handlers:
   static_dir: static
 
 - url: .*
-  script: app.frypic.app
+  script: app.frypic.frypic.app
 
 libraries:
 - name: webapp2
