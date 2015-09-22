@@ -8,7 +8,6 @@ from webapp2_extras.auth import InvalidAuthIdError, InvalidPasswordError
 
 from models.Users import User
 
-
 JINJA_ENVIRONMENT = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
     extensions=['jinja2.ext.autoescape'],
@@ -86,6 +85,7 @@ class MainHandler(webapp2.RequestHandler):
                                             email_address=login,
                                             password_raw=password,
                                             verified=False)
+                    # user = [True]
                     if not user[0]:
                         template_values = {
                             'title': 'May be you can try log in instead?',
@@ -94,15 +94,13 @@ class MainHandler(webapp2.RequestHandler):
                         }
                         print 'Unable to create user {}, duplicating key {}'.format(login, user[1])
                     else:
-                        template_values = {
-                            'title': 'Now you can create everything',
-                            'login': True
-                        }
                         print '6sfull creating user {}'.format(login)
-                        user_id = user[1].get_id()
+
+                        user_id = \
+                        auth.get_auth().get_user_by_password(login, password, remember=True, save_session=True)[
+                            'user_id']
                         self.session_store.save_sessions(self.response)
                         self.redirect('/{}'.format(user_id))
-
 
             if self.request.get('logbtn'):
                 print 'Logging as {}...'.format(login)

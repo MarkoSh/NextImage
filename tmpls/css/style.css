@@ -86,7 +86,7 @@ div form {
 div #LoginForm input[type=email],
 div #LoginForm input[type=password] {
   background: rgba(255, 255, 255, 0.8);
-  width: 300px;
+    width: 210px;
 }
 div #LoginForm input[type=email],
 div #LoginForm input[type=password],
@@ -171,7 +171,7 @@ div.showme {
   div #LoginForm input[type=email],
   div #LoginForm input[type=password] {
     background: rgba(255, 255, 255, 0.8);
-    width: 250px;
+      width: 200px;
   }
   a.sitelogo {
     font-size: 1.5em;
