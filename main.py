@@ -59,6 +59,7 @@ class MainHandler(webapp2.RequestHandler):
                 print 'Logout bye bye...'
             if self.request.path == '/profile':
                 template_values['page'] = 'profile'
+                # profile = ProfileHandler()
                 pass
         template = JINJA_ENVIRONMENT.get_template('_layout.html')
         self.response.write(template.render(template_values))
