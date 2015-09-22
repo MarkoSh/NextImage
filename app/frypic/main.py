@@ -6,6 +6,7 @@ from webapp2_extras import auth, sessions
 from webapp2_extras.auth import InvalidAuthIdError, InvalidPasswordError
 
 from app.lib.models.Users import User
+from app.frypic.UserHandler import UserRequestHandler
 
 
 JINJA_ENVIRONMENT = jinja2.Environment(
@@ -23,7 +24,7 @@ app_config = {
         }
     }
 
-class MainHandler(webapp2.RequestHandler):
+class MainHandler(UserRequestHandler):
     def dispatch(self):
         # Get a session store for this request.
         self.session_store = sessions.get_store(request=self.request)
@@ -122,8 +123,8 @@ app = webapp2.WSGIApplication([
                                   ('/logout', MainHandler),
                                   ('/checkname', MainHandler),
                                   ('/feed', MainHandler),  # FeedHandler - обрабатываем ленту сети
-                                  ('/video', MainHandler),  # MediaFeedHandler - обрабатываем только медийную ленту
-                                  ('/audio', MainHandler),  # MediaFeedHandler - --//--
+                                  ('/video', MainHandler),  # FeedHandler - обрабатываем только медийную ленту
+                                  ('/audio', MainHandler),  # FeedHandler - --//--
                                   ('/im', MainHandler),  # ImHandler - обрабатываем сообщеня
                                   ('/profile', MainHandler),  # ProfileHandler - обрабатываем профиль пользователя
                                   ('/settings', MainHandler),  # ProfileHandler - --//--
