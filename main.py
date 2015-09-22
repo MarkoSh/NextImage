@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-import os
 
 import webapp2
 import jinja2
@@ -8,8 +7,9 @@ from webapp2_extras.auth import InvalidAuthIdError, InvalidPasswordError
 
 from models.Users import User
 
+
 JINJA_ENVIRONMENT = jinja2.Environment(
-    loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
+    loader=jinja2.FileSystemLoader('templates'),
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)
 
@@ -60,7 +60,6 @@ class MainHandler(webapp2.RequestHandler):
             if self.request.path == '/profile':
                 template_values['page'] = 'profile'
                 pass
-
         template = JINJA_ENVIRONMENT.get_template('_layout.html')
         self.response.write(template.render(template_values))
 
@@ -75,7 +74,6 @@ class MainHandler(webapp2.RequestHandler):
             if "checkname" in self.request.path:
                 print 'Checking name {}...'.format(login)
                 # TODO проверка доступности логина, вернуть джисоном результат
-
             if self.request.get('sigbtn'):
                 print 'Registering user {}...'.format(login)
                 if "@" in login and len(password) > 6:
@@ -84,7 +82,6 @@ class MainHandler(webapp2.RequestHandler):
                                             email_address=login,
                                             password_raw=password,
                                             verified=False)
-                    # user = [True]
                     if not user[0]:
                         template_values = {
                             'title': 'May be you can try log in instead?',
@@ -97,7 +94,6 @@ class MainHandler(webapp2.RequestHandler):
                         user_id = user[1].get_id()
                         auth.get_auth().set_session(auth.get_auth().store.user_to_dict(user[1]))
                         self.redirect('/{}'.format(user_id))
-
             if self.request.get('logbtn'):
                 print 'Logging as {}...'.format(login)
                 try:
