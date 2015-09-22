@@ -43,13 +43,6 @@ class MainHandler(webapp2.RequestHandler):
             }
         if auth.get_auth().get_user_by_session():
             user_id = auth.get_auth().get_user_by_session()['user_id']
-            if self.request.path == '/':
-                self.redirect('/{}'.format(user_id))
-            if self.request.path == '/logout':
-                auth.get_auth().unset_session()
-                self.redirect('/')
-                print 'Logout bye bye...'.format(login)
-                pass
             user = User.get_by_id(user_id)
             userURI = user.name if user.name else user_id
             name = user.name if user.name else user.email_address
@@ -57,8 +50,19 @@ class MainHandler(webapp2.RequestHandler):
                 template_values = {
                     'title': 'Hi there, {}'.format(name),
                     'login': True,
-                    'name': userURI
+                    'name': userURI,
+                    'messages': ''
                 }
+            if self.request.path == '/':
+                self.redirect('/{}'.format(user_id))
+            if self.request.path == '/logout':
+                auth.get_auth().unset_session()
+                self.redirect('/')
+                print 'Logout bye bye...'
+            if self.request.path == '/profile':
+                template_values['page'] = 'profile'
+                pass
+
         template = JINJA_ENVIRONMENT.get_template(TEMPLATES_PATH + '_layout.html')
         self.response.write(template.render(template_values))
 

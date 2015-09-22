@@ -18,26 +18,26 @@ a.sitelogo {
   float: left;
 }
 ul#menu {
-    left: 0;
   margin: 0;
   padding: 0;
   position: fixed;
-    top: 1em;
+  top: 1em;
+  left: 0;
 }
 ul#menu li a {
-    background-color: rgba(51, 122, 183, 0.7);
-    color: whitesmoke;
-    display: block;
-    margin-bottom: 1px;
-    padding: 0.3em;
-    text-decoration: none;
-    width: 140px;
+  width: 140px;
+  display: block;
+  padding: 0.3em;
+  background-color: rgba(51, 122, 183, 0.7);
+  color: whitesmoke;
+  text-decoration: none;
+  margin-bottom: 1px;
 }
 ul#menu li a .material-icons {
   float: right;
 }
 ul#menu li a:hover {
-    background-color: rgba(51, 122, 183, 0.9);
+  background-color: rgba(51, 122, 183, 0.9);
 }
 div.page-wrapper {
   display: table;
@@ -45,97 +45,99 @@ div.page-wrapper {
   width: 100%;
 }
 div.header {
+  padding: 0.5em;
   height: 5em;
+  width: 990px;
   margin-left: auto;
   margin-right: auto;
-    padding: 0.5em;
-    width: 990px;
 }
 div.footer {
   background: lightgray;
+  height: 2.1em;
   display: table;
-    height: 2.1em;
   width: 100%;
 }
 div.footer .footer-text {
   display: table-cell;
-    font-size: 0.7em;
   text-align: center;
   vertical-align: middle;
+  font-size: 0.7em;
 }
 div.content {
   display: table-row;
   height: inherit;
 }
 div.content-self {
-    margin-left: auto;
+  padding: 2em 1em;
+  width: 990px;
   margin-right: auto;
-    padding: 2em 1em;
-    width: 990px;
+  margin-left: auto;
 }
 div.loginform-wrapper {
   display: table;
+  width: 100%;
   height: 100%;
-    width: 100%;
 }
-div.loginform-wrapper form {
+div form {
   display: table-cell;
   text-align: center;
   vertical-align: middle;
 }
-div.loginform-wrapper form#LoginForm input[type=email],
-div.loginform-wrapper form#LoginForm input[type=password] {
+div #LoginForm input[type=email],
+div #LoginForm input[type=password] {
   background: rgba(255, 255, 255, 0.8);
+  width: 300px;
 }
-div.loginform-wrapper form#LoginForm input[type=email],
-div.loginform-wrapper form#LoginForm input[type=password],
-div.loginform-wrapper form#LoginForm input[type=submit] {
+div #LoginForm input[type=email],
+div #LoginForm input[type=password],
+div #LoginForm input[type=submit] {
   border: 1px solid lightblue;
   border-radius: 3px;
   margin: 3px;
   padding: 10px;
 }
-div.loginform-wrapper form#LoginForm input[type=submit] {
+div #LoginForm input[type=submit] {
   background: #3383ff;
   border: 1px;
   color: whitesmoke;
   width: 65px;
 }
-div.loginform-wrapper form#LoginForm input[type=submit]:disabled {
+div #LoginForm input[type=submit]:disabled {
   background: rgba(60, 133, 255, 0.7);
 }
-div.loginform-wrapper form#LoginForm input {
+div #LoginForm input {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 div#ytbg {
-    height: 100%;
   position: fixed;
+  z-index: -99;
   width: 100%;
-    z-index: -99;
+  height: 100%;
 }
 div.notify {
   display: none;
-    height: 50px;
   padding: 0.5em;
   position: fixed;
   width: 100%;
+  height: 50px;
 }
 div.notify .notify-wrapper {
+  display: table;
+  color: whitesmoke;
   background-color: rgba(55, 55, 55, 0.5);
   border-radius: 3px;
-    color: whitesmoke;
-    display: table;
-    height: inherit;
-    margin-left: auto;
-    margin-right: auto;
   width: 300px;
+  height: inherit;
+  margin-left: auto;
+  margin-right: auto;
 }
 div.notify .notify-wrapper .notify-message {
   display: table-cell;
+  vertical-align: middle;
   padding: 0 1em;
-    vertical-align: middle;
 }
 div.showme {
+  display: block;
   animation-duration: 5s;
   -moz-animation-duration: 5s;
   -o-animation-duration: 5s;
@@ -152,25 +154,36 @@ div.showme {
   -moz-animation-timing-function: ease-in-out;
   -o-animation-timing-function: ease-in-out;
   -webkit-animation-timing-function: ease-in-out;
-    display: block;
   animation-fill-mode: both;
   -moz-animation-fill-mode: both;
   -o-animation-fill-mode: both;
   -webkit-animation-fill-mode: both;
 }
+@media (max-width: 1300px) {
+  ul#menu {
+    left: -110px;
+  }
+}
 @media (max-width: 1100px) {
   div.header {
     width: 100%;
   }
+  div #LoginForm input[type=email],
+  div #LoginForm input[type=password] {
+    background: rgba(255, 255, 255, 0.8);
+    width: 250px;
+  }
   a.sitelogo {
-      font-size: 1.5em;
+    width: inherit;
     text-align: center;
-      width: inherit;
+    font-size: 1.5em;
   }
 }
-@media (max-width: 1300px) {
-    ul#menu {
-        left: -110px;
+@media (max-width: 736px) {
+  div #LoginForm input[type=email],
+  div #LoginForm input[type=password] {
+    background: rgba(255, 255, 255, 0.8);
+    width: 190px;
   }
 }
 @-webkit-keyframes blockFadeOut {

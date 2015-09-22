@@ -27,7 +27,9 @@
         </div>
     </div>
     <div class="content">
-
+        {% if page %}
+        {% include 'tmpls/' + page + '-body.html' %}
+        {% endif %}
     </div>
     <div class="footer">
         <div class="footer-text">
@@ -38,7 +40,7 @@
         <li><a href="/feed">Feed <i class="material-icons">home</i></a></li>
         <li><a href="/video">Video <i class="material-icons">movie</i></a></li>
         <li><a href="/audio">Audio <i class="material-icons">queue_music</i></a></li>
-        <li><a href="/im">Messages 0 / 0 <i class="material-icons">chat</i></a></li>
+        <li><a href="/im">Messages {{ messages }} <i class="material-icons">chat</i></a></li>
         <li><a href="/profile">Profile <i class="material-icons">person</i></a></li>
         <li><a href="/settings">Settings <i class="material-icons">settings</i></a></li>
         <li><a href="/logout">Log out <i class="material-icons">cancel</i></a></li>
