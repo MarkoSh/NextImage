@@ -96,9 +96,7 @@ class MainHandler(webapp2.RequestHandler):
                     else:
                         print '6sfull creating user {}'.format(login)
 
-                        user_id = \
-                        auth.get_auth().get_user_by_password(login, password, remember=True, save_session=True)[
-                            'user_id']
+                        user_id = auth.get_auth().get_user_by_password(login, password, remember=True, save_session=True)['user_id']
                         self.session_store.save_sessions(self.response)
                         self.redirect('/{}'.format(user_id))
 
