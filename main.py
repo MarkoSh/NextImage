@@ -82,7 +82,9 @@ class MainHandler(webapp2.RequestHandler):
                 print 'Registering user {}...'.format(login)
                 if "@" in login and len(password) > 6:
                     unique_properties = ['email_address']
-                    user = User.create_user(login, unique_properties, email_address=login, password_raw=password,
+                    user = User.create_user(login, unique_properties,
+                                            email_address=login,
+                                            password_raw=password,
                                             verified=False)
                     if not user[0]:
                         template_values = {
