@@ -6,7 +6,7 @@ from webapp2_extras import auth, sessions
 from webapp2_extras.auth import InvalidAuthIdError, InvalidPasswordError
 
 from app.lib.models.Users import User
-from app.frypic.UserHandler import UserRequestHandler
+from app.frypic.UserHandler import UserRequestHandler, ProfileHandler
 
 
 JINJA_ENVIRONMENT = jinja2.Environment(
@@ -23,6 +23,10 @@ app_config = {
             'secret_key': 'mimimimimimimimi'
         }
     }
+
+ERRORMSG_TRYLOGIN = "May be you can try log in instead?"
+ERRORMSG_INVLOGIN = "Ouch, you may be wrong"
+
 
 class MainHandler(UserRequestHandler):
     def dispatch(self):
@@ -60,8 +64,8 @@ class MainHandler(UserRequestHandler):
                 print 'Logout bye bye...'
             if self.request.path == '/profile':
                 template_values['page'] = 'profile'
-                # profile = ProfileHandler()
-                pass
+                profile = ProfileHandler()
+                profile.drawProfilePage()
         template = JINJA_ENVIRONMENT.get_template('_layout.html')
         self.response.write(template.render(template_values))
 
@@ -86,8 +90,8 @@ class MainHandler(UserRequestHandler):
                                             verified=False)
                     if not user[0]:
                         template_values = {
-                            'title': 'May be you can try log in instead?',
-                            'notify': 'May be you can try log in instead?',
+                            'title': ERRORMSG_TRYLOGIN,
+                            'notify': ERRORMSG_TRYLOGIN,
                             'login': False
                         }
                         print 'Unable to create user {}, duplicating key {}'.format(login, user[1])
@@ -106,8 +110,8 @@ class MainHandler(UserRequestHandler):
                     self.redirect('/{}'.format(user_id))
                 except (InvalidPasswordError, InvalidAuthIdError) as e:
                     template_values = {
-                            'title': 'Ouch, you may be wrong',
-                            'notify': 'Ouch, you may be wrong',
+                            'title': ERRORMSG_INVLOGIN,
+                            'notify': ERRORMSG_INVLOGIN,
                             'login': False
                         }
                     print "Auth error {}".format(type(e))

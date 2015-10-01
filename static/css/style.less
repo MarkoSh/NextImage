@@ -72,11 +72,11 @@ div {
       font-size: 0.7em;
     }
   }
-  &.content {
+  &.content-wrapper {
     display: table-row;
     height: inherit;
   }
-  &.content-self {
+  &.content-body {
     padding: 2em 1em;
     width: 990px;
     margin-right: auto;
@@ -181,6 +181,10 @@ div {
 }
 @media (max-width: 1100px) {
   div {
+    &.content-body {
+      width: 100%;
+      padding: 0 50px;
+    }
     &.header {
       width: 100%;
     }
