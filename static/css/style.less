@@ -48,6 +48,35 @@ ul {
   }
 }
 div {
+  &.inbody {
+    color: #3d3d3d;
+    width: 328px;
+    float: left;
+    margin: 0 1px 0.3em 0;
+    padding: 0.5em;
+    .block-title {
+      padding: 0.3em;
+      border-bottom: 1px solid rgba(51, 122, 183, 0.90);
+      border-radius: 3px 3px 0 0;
+      .material-icons {
+        font-size: 10px;
+      }
+    }
+    .block-body {
+      padding: 0.5em;
+      border-radius: 0 0 3px 3px;
+      .tools {
+        float: right;
+        .material-icons {
+          font-size: 1em;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  &.inbody.feed {
+    width: 656px;
+  }
   &.page-wrapper {
     display: table;
     height: 100%;
@@ -77,7 +106,8 @@ div {
     height: inherit;
   }
   &.content-body {
-    padding: 2em 1em;
+    display: table;
+    padding: 2em 0;
     width: 990px;
     margin-right: auto;
     margin-left: auto;

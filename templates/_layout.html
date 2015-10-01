@@ -29,6 +29,8 @@
     <div class="content-wrapper">
         {% if page %}
         {% include page + '-body.html' %}
+        {% else %}
+        {% include 'main-body.html' %}
         {% endif %}
     </div>
     <div class="footer">
