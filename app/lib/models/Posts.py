@@ -3,8 +3,8 @@ from google.appengine.ext import ndb
 class Post(ndb.Model):
     title = ndb.StringProperty()
     uri = ndb.StringProperty()
-    type = ndb.StringProperty(type=['text', 'video', 'image', 'audio'])
-    author_id = ndb.IntegerProperty()
+    type = ndb.StringProperty(choices=['text', 'video', 'image', 'audio'])
+    author_id = ndb.KeyProperty()
 
 class Cat(ndb.Model):
     title = ndb.StringProperty()
@@ -12,6 +12,9 @@ class Cat(ndb.Model):
 
 class Tag(ndb.Model):
     title = ndb.StringProperty()
+
+class Text(ndb.Model):
+    post_id = ndb.IntegerProperty()
 
 class Video(ndb.Model):
     post_id = ndb.IntegerProperty()

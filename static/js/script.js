@@ -12,8 +12,8 @@ window.onscroll = function () {
             if (elClientRec.top < wh) {
                 var postId = Math.floor(Math.random() * (500 - 1) + 1);
                 inbodies[i].innerHTML = '<a href="/' + postId + '" class="postlink"><span class="icons"><i class="material-icons">photo</i></span><img src="http://lorempixel.com/330/200/?' + postId + '" />';
-                inbodies[++i].innerHTML = '<a href="/' + postId + '" class="postlink"><span class="icons"><i class="material-icons">play_arrow</i><i class="material-icons">hd</i></span><img src="http://lorempixel.com/330/200/?' + (++postId) + '" />';
-                inbodies[++i].innerHTML = '<a href="/' + postId + '" class="postlink"><span class="icons"><i class="material-icons">play_arrow</i></span><img src="http://lorempixel.com/330/200/?' + (++postId) + '" />';
+                inbodies[++i].innerHTML = '<a href="/' + (++postId) + '" class="postlink"><span class="icons"><i class="material-icons">play_arrow</i><i class="material-icons">hd</i></span><img src="http://lorempixel.com/330/200/?' + postId + '" />';
+                inbodies[++i].innerHTML = '<a href="/' + (++postId) + '" class="postlink"><span class="icons"><i class="material-icons">play_arrow</i></span><img src="http://lorempixel.com/330/200/?' + postId + '" />';
             }
         }
     }
