@@ -5,13 +5,12 @@
     <title>{{ title }} - FryPic - we fry u</title>
     <link rel="stylesheet" href="/static/css/bootstrap.min.css" type="text/css"/>
     <link href='https://fonts.googleapis.com/css?family=Bad+Script' rel='stylesheet' type='text/css'>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-          rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="/static/css/style.css" type="text/css" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.5/angular.min.js"></script>
 </head>
-<body ng-app>
+<body>
 <div class="notify{% if notify %} showme{% endif %}">
     <div class="notify-wrapper">
         <div class="notify-message">{{ notify }}</div>
@@ -38,15 +37,6 @@
             FryPic - only here you can touch your reality
         </div>
     </div>
-    <ul id="menu">
-        <li><a href="/feed">Feed <i class="material-icons">home</i></a></li>
-        <li><a href="/video">Video <i class="material-icons">movie</i></a></li>
-        <li><a href="/audio">Audio <i class="material-icons">queue_music</i></a></li>
-        <li><a href="/im">Messages {{ messages }} <i class="material-icons">chat</i></a></li>
-        <li><a href="/profile">Profile <i class="material-icons">person</i></a></li>
-        <li><a href="/settings">Settings <i class="material-icons">settings</i></a></li>
-        <li><a href="/logout">Log out <i class="material-icons">cancel</i></a></li>
-    </ul>
 </div>
 {% endif %}
     <script src="/static/js/script.js"></script>

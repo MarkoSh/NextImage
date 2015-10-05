@@ -5,26 +5,19 @@
     <div style='background-image: url("/static/imgs/bg4.jpg")'></div>
 </div>
 <div class="loginform-wrapper">
-    <form novalidate="novalidate" ng-controller="loginFormController" ng-submit="LoginForm.$valid && submit()"
-          method="post" action="/login"
-          name="LoginForm" id="LoginForm">
+    <form method="post" action="/login" name="LoginForm" id="LoginForm">
         <div class="sitelogo">
             FryPic
         </div>
         <div>
-            <input ng-change="checkname()" ng-model="LoginFormData.login" type="email" name="login" id="login"
-                   placeholder="E-Mail" value="test@test.com" required/>
+            <input type="email" name="login" id="login" placeholder="E-Mail" value="test@test.com" required/>
         </div>
         <div>
-            <input ng-model="LoginFormData.password" type="password" name="password" id="password"
-                   placeholder="Password" value="password" required/>
+            <input type="password" name="password" id="password" placeholder="Password" value="password" required/>
         </div>
         <div>
-            <input ng-model="LoginFormData.logbtn" ng-click="submit()" ng-disabled="LoginForm.$invalid" type="submit"
-                   name="logbtn" id="logbtn" value="Log in"/>
-            <input ng-model="LoginFormData.sigbtn" ng-click="submit()" ng-disabled="LoginForm.$invalid" type="submit"
-                   name="sigbtn" id="sigbtn"
-                   value="Sign in"/>
+            <input type="submit" name="logbtn" id="logbtn" value="Log in"/>
+            <input type="submit" name="sigbtn" id="sigbtn" value="Sign in"/>
         </div>
     </form>
 </div>

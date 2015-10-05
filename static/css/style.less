@@ -21,28 +21,16 @@ a {
     float: left;
   }
 }
-ul {
-  &#menu {
-    margin: 0;
-    padding: 0;
-    position: fixed;
-    top: 2em;
-    left: 0;
-    li {
-      a {
-        width: 140px;
-        display: block;
-        padding: 0.3em;
-        background-color: rgba(51, 122, 183, 0.70);
-        color: whitesmoke;
-        text-decoration: none;
-        margin-bottom: 1px;
-        .material-icons {
-          float: right;
-        }
-        &:hover {
-          background-color: rgba(51, 122, 183, 0.90);
-        }
+h2 {
+  &.slogan {
+    font-size: 2em;
+    width: 100%;
+    .tools {
+      display: block;
+      float: right;
+      .material-icons {
+        font-size: 1.5em;
+        cursor: pointer;
       }
     }
   }
@@ -50,33 +38,28 @@ ul {
 div {
   &.inbody {
     color: #3d3d3d;
-    width: 328px;
+    width: 330px;
+    height: 200px;
     float: left;
-    margin: 0 1px 0.3em 0;
-    padding: 0.5em;
-    .block-title {
-      padding: 0.3em;
-      border-bottom: 1px solid rgba(51, 122, 183, 0.90);
-      border-radius: 3px 3px 0 0;
-      .material-icons {
-        font-size: 10px;
-      }
-    }
-    .block-body {
-      padding: 0.5em;
-      border-radius: 0 0 3px 3px;
-      .tools {
-        float: right;
-        .material-icons {
-          font-size: 1em;
-          cursor: pointer;
+    background: #000000 url("https://d13yacurqjgara.cloudfront.net/users/12755/screenshots/1037374/hex-loader2.gif") center center;
+    a {
+      &.postlink {
+        img {
+          display: block;
+          width: 100%;
+        }
+        .icons {
+          position: absolute;
+          color: whitesmoke;
+          text-shadow: 1px 1px 2px black;
+          .material-icons {
+            font-size: 1em;
+          }
         }
       }
     }
   }
-  &.inbody.feed {
-    width: 656px;
-  }
+
   &.page-wrapper {
     display: table;
     height: 100%;
@@ -111,6 +94,9 @@ div {
     width: 990px;
     margin-right: auto;
     margin-left: auto;
+    h2 {
+      font-family: 'PT Sans Narrow', sans-serif;
+    }
   }
   &.loginform-wrapper {
     display: table;
