@@ -51,9 +51,11 @@ div.usertools {
   right: 1em;
 }
 div.usertools .material-icons {
+  background-color: rgba(211, 211, 211, 0.5);
   cursor: pointer;
   display: block;
-  margin: 0.5em;
+  margin: 0.1em;
+  padding: 0.5em;
   text-decoration: none;
 }
 div.inbody {
@@ -210,7 +212,7 @@ div.showme {
     text-align: center;
   }
   h2.slogan .tools {
-    float: none;
+    display: none;
   }
   div.header {
     height: 4.5em;
@@ -251,16 +253,24 @@ div.showme {
     width: inherit;
   }
 }
-@media (max-width: 960px) {
+@media (max-width: 736px) {
   div.inbody {
     width: 50%;
   }
-}
-@media (max-width: 736px) {
   div #LoginForm input[type=email],
   div #LoginForm input[type=password] {
     background: rgba(255, 255, 255, 0.8);
     width: 190px;
+  }
+  div.usertools {
+    bottom: 0;
+    right: auto;
+    text-align: center;
+    width: 100%;
+  }
+  div.usertools .material-icons {
+    background-color: rgba(211, 211, 211, 0.8);
+    display: inline-block;
   }
 }
 @-webkit-keyframes blockFadeOut {

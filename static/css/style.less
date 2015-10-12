@@ -57,9 +57,11 @@ div {
     right: 1em;
     bottom: 1em;
     .material-icons {
+      background-color: rgba(211, 211, 211, 0.50);
       display: block;
       cursor: pointer;
-      margin: 0.5em;
+      margin: 0.1em;
+      padding: 0.5em;
       text-decoration: none;
     }
   }
@@ -228,7 +230,7 @@ div {
       font-size: 1em;
       text-align: center;
       .tools {
-        float: none;
+        display: none;
       }
     }
   }
@@ -280,17 +282,30 @@ div {
 @media (max-width: 960px) {
   div {
     &.inbody {
-      width: 50%;
+//      width: 50%;
     }
   }
 }
 @media (max-width: 736px) {
   div {
+    &.inbody {
+      width: 50%;
+    }
     #LoginForm {
       input[type=email],
       input[type=password] {
         background: rgba(255, 255, 255, 0.80);
         width: 190px;
+      }
+    }
+    &.usertools {
+      text-align: center;
+      width: 100%;
+      right: auto;
+      bottom: 0;
+      .material-icons {
+        display: inline-block;
+        background-color: rgba(211, 211, 211, 0.80);
       }
     }
   }
