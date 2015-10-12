@@ -209,6 +209,9 @@ div.showme {
     font-size: 1em;
     text-align: center;
   }
+  h2.slogan .tools {
+    float: none;
+  }
   div.header {
     height: 4.5em;
   }
@@ -227,7 +230,8 @@ div.showme {
     font-size: 2em;
   }
   div.inbody {
-    width: 320px;
+    height: auto;
+    width: 33.33%;
   }
   div.content-body {
     padding: 0;
@@ -248,8 +252,8 @@ div.showme {
   }
 }
 @media (max-width: 960px) {
-  .inbody {
-    width: 33.33%;
+  div.inbody {
+    width: 50%;
   }
 }
 @media (max-width: 736px) {
