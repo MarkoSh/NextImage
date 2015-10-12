@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+import logging
+
 import webapp2
 import jinja2
 from webapp2_extras import auth, sessions
@@ -61,7 +63,7 @@ class MainHandler(UserRequestHandler):
             if self.request.path == '/logout':
                 auth.get_auth().unset_session()
                 self.redirect('/')
-                print 'Logout bye bye...'
+                logging.info('Logout bye bye...')
             if self.request.path == '/profile':
                 template_values['page'] = 'profile'
                 profile = ProfileHandler()
@@ -78,10 +80,10 @@ class MainHandler(UserRequestHandler):
             login = self.request.get('login')
             password = self.request.get('password')
             if "checkname" in self.request.path:
-                print 'Checking name {}...'.format(login)
+                logging.info('Checking name {}...'.format(login))
                 # TODO проверка доступности логина, вернуть джисоном результат
             if self.request.get('sigbtn'):
-                print 'Registering user {}...'.format(login)
+                logging.info('Registering user {}...'.format(login))
                 if "@" in login and len(password) > 6:
                     unique_properties = ['email_address']
                     user = User.create_user(login, unique_properties,
@@ -94,19 +96,19 @@ class MainHandler(UserRequestHandler):
                             'notify': ERRORMSG_TRYLOGIN,
                             'login': False
                         }
-                        print 'Unable to create user {}, duplicating key {}'.format(login, user[1])
+                        logging.info('Unable to create user {}, duplicating key {}'.format(login, user[1]))
                     else:
-                        print '6sfull creating user {}'.format(login)
+                        logging.info('6sfull creating user {}'.format(login))
                         user_id = user[1].get_id()
                         auth.get_auth().set_session(auth.get_auth().store.user_to_dict(user[1]))
                         self.redirect('/{}'.format(user_id))
             if self.request.get('logbtn'):
-                print 'Logging as {}...'.format(login)
+                logging.info('Logging as {}...'.format(login))
                 try:
                     user_id = auth.get_auth().get_user_by_password(login, password, remember=True, save_session=True,
                                                                    silent=False)['user_id']
                     self.session_store.save_sessions(self.response)
-                    print '6sfull logged user {} '.format(login)
+                    logging.info('6sfull logged user {} '.format(login))
                     self.redirect('/{}'.format(user_id))
                 except (InvalidPasswordError, InvalidAuthIdError) as e:
                     template_values = {
@@ -114,7 +116,7 @@ class MainHandler(UserRequestHandler):
                             'notify': ERRORMSG_INVLOGIN,
                             'login': False
                         }
-                    print "Auth error {}".format(type(e))
+                    logging.info("Auth error {}".format(type(e)))
             template = JINJA_ENVIRONMENT.get_template('_layout.html')
             self.response.write(template.render(template_values))
 
