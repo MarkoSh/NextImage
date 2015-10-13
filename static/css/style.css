@@ -44,6 +44,15 @@ div.usertools {
   position: fixed;
   right: 1em;
 }
+div.usertools .overlay {
+  background-color: rgba(245, 245, 245, 0.95);
+  display: none;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
 div.usertools .material-icons {
   background-color: rgba(211, 211, 211, 0.5);
   cursor: pointer;
